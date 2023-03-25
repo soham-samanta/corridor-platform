@@ -22,10 +22,10 @@ def handle_file_upload(request):
         with open(os.path.join(data_dir, csv_file.name), 'wb') as f:
             for chunk in csv_file.chunks():
                 f.write(chunk)
-        with open(os.path.join(data_dir, 'values.txt'), 'w') as f:
-            f.write(x_value + '\n')
-            f.write(y_value + '\n')
-            f.write(t_value + '\n')
+        with open(os.path.join(data_dir, 'values.txt'), 'w') as f2:
+            f2.write(x_value + '\n')
+            f2.write(y_value + '\n')
+            f2.write(t_value + '\n')
             
         return render(request, 'index.html')
     else:
