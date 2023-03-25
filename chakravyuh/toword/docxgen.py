@@ -1,6 +1,6 @@
 import aspose.words as aw
 
-def doccreate():
+def doccreate(path):
 
     doc = aw.Document()
 
