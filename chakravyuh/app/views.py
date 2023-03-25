@@ -2,6 +2,8 @@ import os
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.conf import settings
+from extract.graphs import exctocsvtopandas, confmat
+from toword.docxgen import doccreate
 # Create your views here.
 
 # def index(req):
@@ -22,10 +24,16 @@ def handle_file_upload(request):
         with open(os.path.join(data_dir, csv_file.name), 'wb') as f:
             for chunk in csv_file.chunks():
                 f.write(chunk)
+        
         with open(os.path.join(data_dir, 'values.txt'), 'w') as f2:
             f2.write(x_value + '\n')
             f2.write(y_value + '\n')
             f2.write(t_value + '\n')
+        df = exctocsvtopandas()
+        print(df)
+        print(type(df))
+        confmat(x_value, y_value, t_value, df)
+        doccreate()
             
         return render(request, 'index.html')
     else:
