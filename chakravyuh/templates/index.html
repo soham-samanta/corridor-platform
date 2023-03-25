@@ -77,6 +77,16 @@
     <form method="post" enctype="multipart/form-data" action="{% url 'file_upload' %}">
         {% csrf_token %}
         <input type="file" name="csv-file">
+        <br>
+        <label for="x-value">Enter the X value:</label>
+        <input type="text" name="x-value" id="x-value">
+        <br>
+        <label for="y-value">Enter the Y value:</label>
+        <input type="text" name="y-value" id="y-value">
+        <br>
+        <label for="t-value">Enter the Threshold value:</label>
+        <input type="number" name="t-value" id="t-value">
+        <br>
         <button type="submit">Upload</button>
     </form>
 
