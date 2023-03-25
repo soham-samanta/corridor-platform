@@ -12,99 +12,217 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+    <!-- Font Awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+
 </head>
+
+    <!-- Internal CSS  -->
+    <style>
+        body{
+            background-image: url("/static/banner.jpeg"); 
+        }
+    </style>
+    <!-- Internal CSS  -->
+
 <body>
 
 
-    <!-- Navbar  -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+
+      <!-- testing -->
+      <div>
+        <!-- navbar  -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img style="margin: 5px;" src="/static/navLogo.png" alt="Logo" width="80" height="80">  
+                MRM Generator
+             </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Corridor</a>
+                  </li>
+                  <li class="nav-item">
+                    <a target="_blank" class="nav-link" href="admin">Admin</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Terms & Condition
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a target="_blank" class="dropdown-item" href="https://google.com">HackADay</a></li>
+                      <li><a target="_blank" class="dropdown-item" href="https://www.corridorplatform.com/en-in">corridorplatform.com</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a target="_blank" class="dropdown-item" href="https://en.wikipedia.org/wiki/mrm">MRM System Wiki</a></li>
+                    </ul>
+                  </li>
+                  <!-- <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                  </li> -->
                 </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-
-
-
-    <hr>
-    <h1>Testing</h1>
-    <hr>
-
-
-    <!-- Upload Section  -->
-    <!-- <form action="#" method="POST" enctype="multipart/form-data">
-            
-        {% csrf_token %}
-        
-        <div class="input-group">
-            <label for="{{ form.image.id_for_label }}"></label>
-            {{ form.file }}
-            <input type="submit" value="Verify Image" class="btn btn-outline-secondary">
-
-        </div>
-
-    </form> -->
-    <form method="post" enctype="multipart/form-data" action="{% url 'file_upload' %}">
-        {% csrf_token %}
-        <input type="file" name="csv-file">
-        <br>
-        <label for="x-value">Enter the X value:</label>
-        <input type="text" name="x-value" id="x-value">
-        <br>
-        <label for="y-value">Enter the Y value:</label>
-        <input type="text" name="y-value" id="y-value">
-        <br>
-        <label for="t-value">Enter the Threshold value:</label>
-        <input type="decimal" name="t-value" id="t-value">
-        <br>
-        <button type="submit">Upload</button>
-    </form>
-
-
-
-
-
-
-
-    <!-- Footer  -->
-    <footer class="bg-light text-center text-lg-start">
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-          © 2023 Copyright:
-          <a class="text-dark" href="https://corridorplatform.com/">HackADay.com</a>
-        </div>
-        <!-- Copyright -->
-      </footer>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
+              </div>
+            </div>
+          </nav>
+          <br>
+          <!-- navbar  -->
+        </header>
     
+          <!-- spinners  -->
+            <center>
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-border text-secondary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-border text-success" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-border text-danger" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-border text-warning" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-border text-info" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-border text-light" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            <br><br>
+          <!-- spinners  -->
+    
+          <!-- alerts  -->
+          <div id="liveAlertPlaceholder"></div>
+          <button type="button" class="btn btn-primary" id="liveAlertBtn">Show Live alert</button>
+          <br><br>
+          <!-- alerts  -->
+    
+          <!-- cards  -->
+          <div class="card" style="width: 18rem;">
+            <img src="/static/logo.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data" action="{% url 'file_upload' %}">
+                    {% csrf_token %}
+                    <input type="file" name="csv-file">
+                    <br>
+                    <label for="x-value">Enter the X value:</label>
+                    <input type="text" name="x-value" id="x-value">
+                    <br>
+                    <label for="y-value">Enter the Y value:</label>
+                    <input type="text" name="y-value" id="y-value">
+                    <br>
+                    <label for="t-value">Enter the Threshold value:</label>
+                    <input type="decimal" name="t-value" id="t-value">
+                    <br>
+                    <button type="submit">Upload</button>
+                </form>
+            </div>
+          </div>
+          <br>
+          <!-- cards  --> 
+        </center>
+    
+    
+        <!-- Footer  -->
+        <footer class="bg-dark text-center text-white">
+          <!-- Grid container -->
+          <div class="container p-4 pb-0">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+              <!-- Facebook -->
+              <a target="_blank" class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/" role="button"
+              ><i class="fab fa-facebook-f"></i
+              ></a>
+      
+              <!-- Twitter -->
+              <a target="_blank" class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/" role="button"
+              ><i class="fab fa-twitter"></i
+              ></a>
+      
+              <!-- Google -->
+              <a target="_blank" class="btn btn-outline-light btn-floating m-1" href="mailto:sohamsamanta2@gmail.com" role="button"
+              ><i class="fab fa-google"></i
+              ></a>
+      
+              <!-- Instagram -->
+              <a target="_blank" class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/" role="button"
+              ><i class="fab fa-instagram"></i
+              ></a>
+      
+              <!-- Linkedin -->
+              <a target="_blank" class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com" role="button"
+              ><i class="fab fa-linkedin-in"></i
+              ></a>
+      
+              <!-- Github -->
+              <a target="_blank" class="btn btn-outline-light btn-floating m-1" href="https://github.com/soham-samanta" role="button"
+              ><i class="fab fa-github"></i
+              ></a>
+            </section>
+            <!-- Section: Social media -->
+          </div>
+          <!-- Grid container -->
+    
+          <!-- Section: Text -->
+          <section class="mb-4">
+            <p>
+                Corridor Platforms was founded in 2017 and is a leading provider of Decision Workflow Governance and Automation Solutions designed by industry veterans to rapidly transform risk and marketing decisioning at banks. Corridor has created a unique solution that enables risk managers to connect policies/strategies to the underlying models and product valuation frameworks in a single centralized system. This enables instantaneous evaluation of changes and allows for rapid execution into production. Corridor’s built-in traceability and governance focuses on enhancing compliance while promoting innovation.
+            </p>
+          </section>
+          <!-- Section: Text -->
+        
+          <!-- Copyright -->
+          <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023 Copyright:
+            <a class="text-white" href="https://sohamsamanta@gmail.com/">Team ChakraVyuh</a>
+          </div>
+          <!-- Copyright -->
+        </footer>
+        <!-- Footer  -->
+    
+
+
+
+
+        <!-- JavaScript  -->
+        <script>
+            const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+            const alert = (message, type) => {
+            const wrapper = document.createElement('div')
+            wrapper.innerHTML = [
+                `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+                `   <div>${message}</div>`,
+                '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+                '</div>'
+            ].join('')
+    
+            alertPlaceholder.append(wrapper)
+            }
+    
+            const alertTrigger = document.getElementById('liveAlertBtn')
+            if (alertTrigger) {
+            alertTrigger.addEventListener('click', () => {
+                alert('Greetings !!! Welcome to MRM. Kindly upload the data.', 'success')
+            })
+            }
+        </script>
+        <!-- JavaScript  -->
+
+
+
 </body>
 </html>
