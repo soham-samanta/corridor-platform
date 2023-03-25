@@ -4,7 +4,6 @@ from django.http import HttpResponse
 from django.conf import settings
 from extract.graphs import exctocsvtopandas, confmat
 from toword.docxgen import doccreate
-# Create your views here.
 
 # def index(req):
 #     return HttpResponse("Hello Peeps !! Corridoor") 
