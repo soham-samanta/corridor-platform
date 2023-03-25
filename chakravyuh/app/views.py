@@ -1,6 +1,6 @@
 import os
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, FileResponse
 from django.conf import settings
 from extract.graphs import exctocsvtopandas, confmat
 from toword.docxgen import doccreate
@@ -33,7 +33,15 @@ def handle_file_upload(request):
         print(type(df))
         confmat(x_value, y_value, t_value, df)
         doccreate()
+        res_dir =  os.path.join(settings.BASE_DIR, 'extract')
+        
+        if not os.path.exists(os.path.join(res_dir, 'out.docx')):
+            return render(request, 'index.html')
+
+        with open(os.path.join(res_dir, 'out.docx'),'r') as file:
+            response = FileResponse(file, content_type='application/docx')
+            response['Content-Disposition'] =  'attachment; filename="out.docx"'
+            return response
             
-        return render(request, 'index.html')
     else:
         return render(request, 'index.html')
