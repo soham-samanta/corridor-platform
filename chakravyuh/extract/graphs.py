@@ -7,7 +7,7 @@ import glob
 from sklearn import metrics
 
 
-def exctocsvtopandas():
+def exctocsvtopandas(path):
     # path = r'C:\Users\KIIT\Prerak\Prerak_Code\CorridorPlatforms\corridor-platform\chakravyuh\\data'
     # extension = 'xlsx'
     # os.chdir(path)
@@ -20,17 +20,17 @@ def exctocsvtopandas():
 
     # read csv file and convert 
     # into a dataframe object
-    df = pd.DataFrame(pd.read_csv(r"C:\Users\KIIT\Prerak\Prerak_Code\CorridorPlatforms\corridor-platform\chakravyuh\data\Test.csv"))
+    df = pd.DataFrame(pd.read_csv(path + "\data\Test.csv"))
     return df
 
 
-def confmat(actual, predicted, threshold, df):
+def confmat(actual, predicted, threshold, df, path):
     print( "-------------------------")
     print(predicted)
     print(df[predicted])
     df['discrete_pred'] = pd.cut(x=df[predicted], bins=[0, threshold, 1], labels=[0, 1])
     print(df)
-    dir_name = r'C:\Users\KIIT\Prerak\Prerak_Code\CorridorPlatforms\corridor-platform\chakravyuh\extract\generatedcharts'
+    dir_name = path + '\extract\generatedcharts'
     plt.rcParams["savefig.directory"] = os.chdir(os.path.dirname(dir_name))
     confusion_matrix = metrics.confusion_matrix(df[actual], df['discrete_pred'])
 
@@ -40,7 +40,7 @@ def confmat(actual, predicted, threshold, df):
     
     plt.savefig('conf_mat.png')
     return None
-    
+
 # def scatterplot(x, y):
 #     fig, ax = plt.subplots()
 #     ax.scatter(df[x], df[y])

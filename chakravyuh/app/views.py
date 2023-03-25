@@ -28,11 +28,12 @@ def handle_file_upload(request):
             f2.write(x_value + '\n')
             f2.write(y_value + '\n')
             f2.write(t_value + '\n')
-        df = exctocsvtopandas()
-        print(df)
-        print(type(df))
-        confmat(x_value, y_value, t_value, df)
-        doccreate()
+        path = os.getcwd()
+        path = path[:len(path)-4]
+        
+        df = exctocsvtopandas(path)
+        confmat(x_value, y_value, t_value, df, path)
+        doccreate(path)
         res_dir =  os.path.join(settings.BASE_DIR, 'toword')
         
         if not os.path.exists(os.path.join(res_dir, 'out.docx')):
