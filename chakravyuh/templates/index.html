@@ -74,7 +74,7 @@
         </div>
 
     </form> -->
-    <form method="post" enctype="multipart/form-data" action="your-backend-url">
+    <form method="post" enctype="multipart/form-data" action="{% url 'file_upload' %}">
         {% csrf_token %}
         <input type="file" name="csv-file">
         <button type="submit">Upload</button>

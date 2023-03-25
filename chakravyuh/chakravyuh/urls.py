@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index1, name='index1'),
     path('home/',views.index1, name='index1'),
+    path('upload_file/',views.handle_file_upload, name='file_upload')
 ]+static(settings.MEDIA_URL , document_root = settings.MEDIA_ROOT)
