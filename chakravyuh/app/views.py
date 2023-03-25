@@ -33,7 +33,7 @@ def handle_file_upload(request):
         print(type(df))
         confmat(x_value, y_value, t_value, df)
         doccreate()
-        res_dir =  os.path.join(settings.BASE_DIR, 'extract')
+        res_dir =  os.path.join(settings.BASE_DIR, 'toword')
         
         if not os.path.exists(os.path.join(res_dir, 'out.docx')):
             return render(request, 'index.html')
